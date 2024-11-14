@@ -1,0 +1,42 @@
+hey -n 1000 http://0.0.0.0:8080
+
+Summary:
+  Total:        0.1378 secs
+  Slowest:      0.0173 secs
+  Fastest:      0.0004 secs
+  Average:      0.0065 secs
+  Requests/sec: 7256.0358
+
+
+Response time histogram:
+  0.000 [1]     |
+  0.002 [34]    |■■■■■■
+  0.004 [133]   |■■■■■■■■■■■■■■■■■■■■■■■■
+  0.005 [207]   |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.007 [222]   |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.009 [210]   |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.011 [114]   |■■■■■■■■■■■■■■■■■■■■■
+  0.012 [48]    |■■■■■■■■■
+  0.014 [25]    |■■■■■
+  0.016 [4]     |■
+  0.017 [2]     |
+
+
+Latency distribution:
+  10% in 0.0031 secs
+  25% in 0.0045 secs
+  50% in 0.0063 secs
+  75% in 0.0083 secs
+  90% in 0.0100 secs
+  95% in 0.0113 secs
+  99% in 0.0136 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0001 secs, 0.0004 secs, 0.0173 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0013 secs
+  resp wait:    0.0064 secs, 0.0003 secs, 0.0172 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0010 secs
+
+Status code distribution:
+  [200] 1000 responses
