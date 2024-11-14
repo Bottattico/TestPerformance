@@ -1,4 +1,5 @@
 ## Getting Started
+This simple project is based on an example from [Sunfishcode](https://github.com/sunfishcode/hello-wasi-http).
 
 ### 1. Build the Wasm Component
 
