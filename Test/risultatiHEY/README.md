@@ -13,3 +13,4 @@ The tests were executed using the following `hey` command, adjusting the number 
 
 ```sh
 hey -n <number_of_requests> http://localhost:8080
+```
