@@ -46,4 +46,5 @@ curl http://localhost:8080
 You should see the following response:
 
 ```sh
-Hello!```
+Hello!
+```
