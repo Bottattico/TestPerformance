@@ -1,37 +1,49 @@
-## Let's start!
-With that, build the Wasm component from source in this repository:
+## Getting Started
+
+### 1. Build the Wasm Component
+
+To begin, compile the Wasm component from the source code in this repository:
+
 ```sh
-$ cargo component build --release
-    Creating component target/wasm32-wasip1/release/hello_wasi_http.wasm
+cargo component build --release
 ```
+This command creates a Wasm component located at target/wasm32-wasip1/release/hello_wasi_http.wasm.
 
-This builds a Wasm component at `target/wasm32-wasip1/release/hello_wasi_http.wasm`.
+### 2. Install Wasmtime
 
-To run it, we'll need at least Wasmtime `18.0`. Installation instructions are on [wasmtime.dev].
+To run this component, you'll need at least version 18.0 of Wasmtime. You can find installation instructions on [wasmtime.dev].
 [wasmtime.dev]: https://wasmtime.dev/
 
-To compile it with AOT, you can use:
+### 3. (Optional) Compile with AOT
+For ahead-of-time (AOT) compilation, use the following command:
 ```sh
-$  wasmtime compile target/wasm32-wasip1/release/hello_wasi_http.wasm
+wasmtime compile target/wasm32-wasip1/release/hello_wasi_http.wasm
 ```
-Then, in your project, will appear a magic hello_wasi_http.cwasm, in other world, a file compiled with AOT from Wasmtime.
-For more info with AOT compiler look [cli-options].
-[cli-options]: https://docs.wasmtime.dev/cli-options.html#compile
+This will generate a precompiled hello_wasi_http.cwasm file in your project directory, which is optimized for Wasmtime. For more information about AOT compilation, refer to the [CLI options documentation].
+[CLI options documentation]:https://docs.wasmtime.dev/cli-options.html#compile
 
-Then, run in your terminal:
+### 4. Run the HTTP Server
+To start the server, run one of the following commands:
+
+- **Non-AOT Version**:
+
+  ```sh
+  wasmtime serve target/wasm32-wasip1/release/hello_wasi_http.wasm
+  ```
+- **AOT Version (if you compiled with AOT)**:
+
+  ```sh
+  wasmtime serve hello_wasi_http.cwasm --allow-precompiled  
+  ```
+By default, this will start an HTTP server listening on 0.0.0.0:8080.  
+
+### 4. Make a Request
+With the server running, open another terminal window and make a request:
 ```sh
-$  wasmtime serve target/wasm32-wasip1/release/hello_wasi_http.wasm
+curl http://localhost:8080
 ```
 
-Or, for the AOT version:
+You should see the following response:
+
 ```sh
-$  wasmtime serve hello_wasi_http.cwasm --allow-precompiled
-```
-
-This starts up an HTTP server that, by default, listens on `0.0.0.0:8080`.
-
-With that running, in another window, we can now make requests!
-```sh
-$ curl http://localhost:8080
-Hello!
-```
+Hello!```
